@@ -5,7 +5,7 @@ public class StringUtils {
       if (str == null){
           return false;
       }
-        int i = Integer.parseInt(str);
-      return i>=0;
+        double i = Double.parseDouble(str);
+      return i>0;
     }
 }
