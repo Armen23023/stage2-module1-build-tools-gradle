@@ -7,6 +7,6 @@ public class Utils {
         if (args == null){
             return false;
         }
-       return args.stream().allMatch(a -> Integer.parseInt(a)>0);
+       return args.stream().allMatch(a ->a.matches("\\d+") && Integer.parseInt(a)>=0);
     }
 }
