@@ -1,33 +1,49 @@
 plugins {
-    // id for library
-    // id for maven to publish jar to local repository
+    id 'java-library'
+    id 'maven-publish'
 }
 
 java {
-// provide sourceCompatibility
+    toolchain {
+           languageVersion = JavaLanguageVersion.of(8)
+    }
 }
 
 repositories {
-// provide repository, where required dependencies are located
+    maven{
+        allowInsecureProtocol = true
+        url = uri('http://nexus.ab.loc:80/repository/maven-a-bank-release/')
+    }
+    mavenCentral()
+    mavenLocal()
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
-// provide groupId
-// provide artifactId
-// provide version
+            groupId = 'com.mjcschool' as Publication
+            artifactId = 'artifact' as Publication
+            version = '1.0-SNAPSHOT' as Publication
 
             from components.java
         }
     }
 }
 
-//add Apache Apache Commons Lang 3.10 (or higher) dependency
+dependencies{
+    implementation project(':utils')
+    implementation 'org.apache.commons:commons-lang3:3.10'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.1'
+}
 
 jar {
     manifest {
-        //provide manifest with such attributes as 'Implementation-Title', 'Implementation-Version'
+        attributes (
+                'Implementation-Title': 'My Project',
+                'Implementation-Version': 1.0
+        )
     }
 }
 
