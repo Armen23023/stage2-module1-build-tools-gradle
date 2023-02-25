@@ -1,12 +1,12 @@
-group 'com.mjcschool'
+group 'com.example'
 version '1.0-SNAPSHOT'
+
 repositories {
     mavenCentral()
 }
+
 dependencies {
-    implementation project(':utils')
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-}
+    implementation 'org.apache.commons:commons-lang3:3.10'}
 
 test {
     useJUnitPlatform()

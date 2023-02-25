@@ -21,9 +21,9 @@ repositories {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.mjcschool' as Publication
-            artifactId = 'artifact' as Publication
-            version = '1.0-SNAPSHOT' as Publication
+            groupId = 'com.mjcschool'
+            artifactId = 'artifact.id'
+            version = '1.0-SNAPSHOT'
 
             from components.java
         }
@@ -31,7 +31,6 @@ publishing {
 }
 
 dependencies{
-    implementation project(':utils')
     implementation 'org.apache.commons:commons-lang3:3.10'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
