@@ -6,6 +6,6 @@ public class StringUtils {
           return false;
       }
         double i = Double.parseDouble(str);
-      return i>0;
+      return i>=0;
     }
 }
